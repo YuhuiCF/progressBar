@@ -20,8 +20,8 @@ module.exports = function(config) {
     files: [
         './js/*.js',
         './tests/progressBarSpec.js',
-        './node_modules/jasmine-jquery/lib/jasmine-jquery.js'
-        //{pattern: './node_modules/jasmine-jquery/lib/jasmine-jquery.js', included: false}
+        //'./node_modules/jasmine-jquery/lib/jasmine-jquery.js'
+        {pattern: './node_modules/jasmine-jquery/lib/jasmine-jquery.js', included: false}
     ],
 
 
