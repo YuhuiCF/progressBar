@@ -9,7 +9,7 @@ module.exports = function(config) {
 
     // frameworks to use
     frameworks: ['jasmine'],
-    
+
 
     preprocessors: {
         './js/*.js': 'coverage'
@@ -19,7 +19,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         './js/*.js',
-        './tests/progressBarSpec.js'
+        './tests/progressBarSpec.js',
+        './node_modules/jasmine-jquery/lib/jasmine-jquery.js'
+        //{pattern: './node_modules/jasmine-jquery/lib/jasmine-jquery.js', included: false}
     ],
 
 

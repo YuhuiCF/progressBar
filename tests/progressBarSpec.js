@@ -15,7 +15,7 @@ var toIncrementByDefault = function(progressBar,name){
     expect(progressBar.increment(name).getPercentage()).toBe('75');
     expect(progressBar.increment(name).getPercentage()).toBe('78');
     expect(progressBar.increment(name).getPercentage()).toBe('80');
-}
+};
 var toIncrementLinearly = function(progressBar,name,maxScore){
     expect(progressBar.increment(name).getPercentage()).toBe((100/maxScore).toFixed(precision));
     expect(progressBar.increment(name).getPercentage()).toBe((200/maxScore).toFixed(precision));
@@ -23,7 +23,7 @@ var toIncrementLinearly = function(progressBar,name,maxScore){
     expect(progressBar.increment(name).getPercentage()).toBe((400/maxScore).toFixed(precision));
     expect(progressBar.increment(name).getPercentage()).toBe((500/maxScore).toFixed(precision));
     expect(progressBar.increment(name).getPercentage()).toBe((100).toFixed(precision));
-}
+};
 
 describe('progressBarSpec', function() {
     var progressBar;
@@ -35,7 +35,7 @@ describe('progressBarSpec', function() {
     });
 
     describe('to create a sub progress progress1', function() {
-        
+
         beforeEach(function() {
             progressBar = new ProgressBar();
         });
@@ -50,7 +50,7 @@ describe('progressBarSpec', function() {
                 var hooks = {};
                 hooks['progressBar:complete:' + name] = function(){
                     console.log(name + ' is completed');
-                }
+                };
 
                 progressBar = new ProgressBar({
                     hooks: hooks
@@ -67,11 +67,11 @@ describe('progressBarSpec', function() {
                 window.hooks = {};
                 window.hooks['progressBar:complete:' + name2] = function(){
                     console.log(name2 + ' is now completed');
-                }
+                };
                 progressBar.complete(name2);
                 expect(console.log).toHaveBeenCalledWith(name2 + ' is now completed');
             });
-            
+
             it('it should be able to set precision, e.g. 5',function(){
                 progressBar = new ProgressBar({
                     precision: 5

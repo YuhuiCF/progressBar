@@ -1,10 +1,10 @@
 // Include gulp
-var gulp = require('gulp'); 
+var gulp = require('gulp');
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
- 
+
 var testFiles = [
   'client/todo.js',
   'client/todo.util.js',
@@ -13,7 +13,7 @@ var testFiles = [
 ];
 
 var paths = {
-    scripts: ['./js/*.js','!./js/jquery.js'],
+    scripts: ['./js/*.js','!./js/lib*'],
     karma: './karma.conf.js'
 };
 
@@ -25,7 +25,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('karma',['lint'],function() {
-    // Be sure to return the stream 
+    // Be sure to return the stream
     //return gulp.src(paths.scripts)
     return gulp.src('blop')
         .pipe(karma({
@@ -33,7 +33,7 @@ gulp.task('karma',['lint'],function() {
             browsers: ['PhantomJS']
         }))
         .on('error', function(err) {
-            // Make sure failed tests cause gulp to exit non-zero 
+            // Make sure failed tests cause gulp to exit non-zero
             throw err;
         });
 });
